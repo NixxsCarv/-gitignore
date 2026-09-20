@@ -1,0 +1,139 @@
+/* ===== Base ===== */
+:root {
+  --tinta: #1d2433;
+  --tinta-suave: #5b6478;
+  --fundo: #f2f4f8;
+  --cartao: #ffffff;
+  --borda: #d5dae5;
+  --acento: #1e4fd6;
+  --verde: #1f8a4c;
+  --verde-fundo: #dff3e6;
+  --amarelo: #a86b00;
+  --amarelo-fundo: #fff1c9;
+  --vermelho: #b42323;
+  --vermelho-fundo: #fbdcdc;
+  --azul-fundo: #e3ebff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--tinta);
+  background: var(--fundo);
+  line-height: 1.5;
+}
+
+/* ===== Estrutura da página ===== */
+.topo {
+  background: var(--tinta);
+  color: #fff;
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topo h1 { margin: 0; font-size: 1.5rem; }
+.topo p { margin: 0.25rem 0 0; color: #c8cfdf; }
+.topo .identificacao { font-size: 0.9rem; }
+.topo nav { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; margin-top: 0.75rem; }
+.topo nav a {
+  color: #fff; text-decoration: none; padding: 0.15rem 0.6rem;
+  border: 1px solid #4a5573; border-radius: 4px; font-size: 0.85rem;
+}
+.topo nav a:hover, .topo nav a:focus-visible { background: var(--acento); border-color: var(--acento); }
+
+main { max-width: 860px; margin: 0 auto; padding: 1rem; }
+.etapa { margin: 2rem 0 0.75rem; font-size: 1.25rem; color: var(--acento); }
+
+.exercicio {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  scroll-margin-top: 9rem;
+}
+.exercicio h2 { margin: 0; font-size: 1.15rem; }
+.exercicio h3 { margin: 1.5rem 0 0.5rem; font-size: 1rem; }
+.conceitos { margin: 0.15rem 0 1rem; color: var(--tinta-suave); font-size: 0.9rem; }
+
+/* ===== Botões e campos ===== */
+button {
+  font: inherit; cursor: pointer; color: #fff; background: var(--acento);
+  border: 0; border-radius: 6px; padding: 0.4rem 0.9rem;
+}
+button:hover:not(:disabled) { filter: brightness(1.1); }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #9db6ff; outline-offset: 2px; }
+button:disabled { background: #b8bfcf; cursor: not-allowed; }
+button.perigo { background: var(--vermelho); }
+
+.acoes { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+
+.formulario { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.75rem; }
+label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.9rem; }
+input, select {
+  font: inherit; padding: 0.4rem 0.6rem; border: 1px solid var(--borda); border-radius: 6px; background: #fff;
+}
+
+/* ===== Listas ===== */
+.lista { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+.lista li { padding: 0.6rem 0.8rem; border: 1px solid var(--borda); border-radius: 6px; }
+
+.linha-produto, .linha-tarefa {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem;
+}
+.linha-produto > strong { min-width: 12rem; }
+.linha-tarefa { justify-content: space-between; }
+.linha-tarefa > div { display: flex; flex-direction: column; }
+
+/* ===== Mensagens e selos ===== */
+.mensagem { font-size: 1.1rem; font-weight: 600; color: var(--acento); }
+.msg-erro { color: var(--vermelho); background: var(--vermelho-fundo); padding: 0.5rem 0.75rem; border-radius: 6px; }
+.msg-vazia { color: var(--tinta-suave); font-style: italic; }
+.resumo { font-size: 0.95rem; }
+
+.selo {
+  display: inline-block; margin: 0; padding: 0.1rem 0.6rem;
+  border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+}
+.selo-ok { color: var(--verde); background: var(--verde-fundo); }
+.selo-erro { color: var(--vermelho); background: var(--vermelho-fundo); }
+.selo-alerta { color: var(--amarelo); background: var(--amarelo-fundo); }
+.selo-info { color: var(--acento); background: var(--azul-fundo); }
+.selo-promo { color: #c2410c; background: #ffe6d5; }
+
+/* ===== Exercício 7: cores alternadas ===== */
+.linha-par { background: #e3ebff; }
+.linha-impar { background: #fff4d6; }
+.linha-primeira { font-weight: 700; border-left: 6px solid var(--acento) !important; }
+.linha-ultima { border: 2px dashed #7c3aed !important; }
+
+/* ===== Exercício 9: estoque ===== */
+.estoque-vermelho { color: var(--vermelho); background: var(--vermelho-fundo); }
+.estoque-amarelo { color: var(--amarelo); background: var(--amarelo-fundo); }
+.estoque-verde { color: var(--verde); background: var(--verde-fundo); }
+
+/* ===== Exercício 10: promoção ===== */
+.texto-negrito { font-weight: 700; }
+
+/* ===== Exercícios 13 e 14: tarefas ===== */
+.prioridade-baixa { border-left: 6px solid #3b82f6 !important; }
+.prioridade-media { border-left: 6px solid #f59e0b !important; }
+.prioridade-alta { border-left: 6px solid #dc2626 !important; }
+.tarefa-concluida { background: var(--verde-fundo); }
+.tarefa-concluida .titulo-tarefa { text-decoration: line-through; color: var(--tinta-suave); }
+
+/* ===== Desafio: painel de projetos ===== */
+.cartao-projeto p { margin: 0.35rem 0; }
+.projeto-topo { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+.status-planejamento { color: #4b3f9e; background: #e7e3fb; }
+.status-desenvolvimento { color: var(--acento); background: var(--azul-fundo); }
+.status-testes { color: var(--amarelo); background: var(--amarelo-fundo); }
+.status-concluido { color: var(--verde); background: var(--verde-fundo); }
+.nota-destaque { border: 2px solid var(--verde) !important; background: #f4fbf7; }
+.nota-alerta { border: 2px solid var(--vermelho) !important; background: #fff6f6; }
+.nota-indefinida { color: var(--tinta-suave); font-style: italic; }
+.campo-status { max-width: 14rem; margin-top: 0.5rem; }

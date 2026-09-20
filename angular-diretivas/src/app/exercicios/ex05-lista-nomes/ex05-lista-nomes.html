@@ -1,0 +1,12 @@
+<section class="exercicio" id="ex05">
+  <h2>Exercício 5 – Lista de nomes</h2>
+  <p class="conceitos">Conceitos: ngFor, index, first e last</p>
+
+  <ul class="lista">
+    <li *ngFor="let nome of nomes; let i = index; let primeiro = first; let ultimo = last">
+      <strong>{{ i + 1 }}.</strong> {{ nome }}
+      <span class="selo selo-info" *ngIf="primeiro">Primeiro da lista</span>
+      <span class="selo selo-info" *ngIf="ultimo">Último da lista</span>
+    </li>
+  </ul>
+</section>

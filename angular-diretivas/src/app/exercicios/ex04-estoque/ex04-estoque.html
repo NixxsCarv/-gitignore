@@ -1,0 +1,14 @@
+<section class="exercicio" id="ex04">
+  <h2>Exercício 4 – Situação do estoque</h2>
+  <p class="conceitos">Conceitos: ngIf, property binding e eventos</p>
+
+  <p>Produto: <strong>{{ nomeProduto }}</strong> | Quantidade: <strong>{{ quantidadeEstoque }}</strong></p>
+
+  <p class="selo selo-ok" *ngIf="quantidadeEstoque > 0">Produto disponível</p>
+  <p class="selo selo-erro" *ngIf="quantidadeEstoque === 0">Produto sem estoque</p>
+
+  <div class="acoes">
+    <button (click)="adicionar()">Adicionar unidade</button>
+    <button (click)="remover()" [disabled]="quantidadeEstoque === 0">Remover unidade</button>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<section class="exercicio" id="ex09">
+  <h2>Exercício 9 – Classificação dos produtos</h2>
+  <p class="conceitos">Conceitos: condições encadeadas e ngClass</p>
+
+  <ul class="lista">
+    <li *ngFor="let produto of produtos; let i = index" class="linha-produto">
+      <strong>{{ i + 1 }}. {{ produto.nome }}</strong>
+      <span>Quantidade: {{ produto.quantidade }}</span>
+
+      <span class="selo" [ngClass]="classeEstoque(produto)">
+        <ng-container *ngIf="produto.quantidade === 0; else comEstoque">Sem estoque</ng-container>
+        <ng-template #comEstoque>
+          <ng-container *ngIf="produto.quantidade <= 5; else estoqueAlto">Estoque baixo</ng-container>
+        </ng-template>
+        <ng-template #estoqueAlto>Estoque disponível</ng-template>
+      </span>
+    </li>
+  </ul>
+</section>

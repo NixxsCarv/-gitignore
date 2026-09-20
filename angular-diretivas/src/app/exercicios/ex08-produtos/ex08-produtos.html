@@ -1,0 +1,13 @@
+<section class="exercicio" id="ex08">
+  <h2>Exercício 8 – Lista de produtos</h2>
+  <p class="conceitos">Conceitos: objetos, ngFor, interpolação e pipe currency</p>
+
+  <ul class="lista">
+    <li *ngFor="let produto of produtos; let i = index" class="linha-produto">
+      <strong>{{ i + 1 }}. {{ produto.nome }}</strong>
+      <span>Preço: {{ produto.preco | currency: 'BRL' }}</span>
+      <span>Disponível: {{ produto.quantidade }} un.</span>
+      <span>Total em estoque: {{ produto.preco * produto.quantidade | currency: 'BRL' }}</span>
+    </li>
+  </ul>
+</section>

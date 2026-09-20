@@ -1,0 +1,20 @@
+<section class="exercicio" id="ex06">
+  <h2>Exercício 6 – Tratamento de lista vazia</h2>
+  <p class="conceitos">Conceitos: combinação de ngIf e ngFor</p>
+
+  <div class="acoes">
+    <button (click)="removerUltimo()" [disabled]="nomes.length === 0">Remover último nome</button>
+    <button (click)="limparLista()" [disabled]="nomes.length === 0">Limpar lista</button>
+    <button (click)="restaurarLista()">Restaurar lista inicial</button>
+  </div>
+
+  <p>Total de nomes: <strong>{{ nomes.length }}</strong></p>
+
+  <p class="msg-vazia" *ngIf="nomes.length === 0">Nenhum nome cadastrado</p>
+
+  <ul class="lista" *ngIf="nomes.length > 0">
+    <li *ngFor="let nome of nomes; let i = index">
+      <strong>{{ i + 1 }}.</strong> {{ nome }}
+    </li>
+  </ul>
+</section>

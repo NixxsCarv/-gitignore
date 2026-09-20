@@ -1,0 +1,11 @@
+<section class="exercicio" id="ex02">
+  <h2>Exercício 2 – Situação do usuário</h2>
+  <p class="conceitos">Conceitos: ngIf, else e eventos</p>
+
+  <p class="selo selo-ok" *ngIf="usuarioLogado; else naoAutorizado">Usuário autenticado</p>
+  <ng-template #naoAutorizado>
+    <p class="selo selo-erro">Acesso não autorizado</p>
+  </ng-template>
+
+  <button (click)="alternarLogin()">{{ usuarioLogado ? 'Sair' : 'Entrar' }}</button>
+</section>
