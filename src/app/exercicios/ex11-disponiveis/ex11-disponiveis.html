@@ -1,0 +1,15 @@
+<section>
+  <h3>Exercício 11 - Exibir somente produtos disponíveis</h3>
+
+  <button (click)="alternarFiltro()">
+    {{ somenteDisponiveis ? 'Exibir todos os produtos' : 'Exibir somente produtos com estoque' }}
+  </button>
+
+  <ul>
+    <ng-container *ngFor="let produto of produtos">
+      <li *ngIf="!somenteDisponiveis || produto.quantidade > 0">
+        {{ produto.nome }} - Quantidade: {{ produto.quantidade }}
+      </li>
+    </ng-container>
+  </ul>
+</section>

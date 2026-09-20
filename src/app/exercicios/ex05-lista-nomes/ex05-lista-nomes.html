@@ -1,0 +1,11 @@
+<section>
+  <h3>Exercício 5 - Lista de nomes</h3>
+
+  <ul>
+    <li *ngFor="let nome of nomes; let i = index; let primeiro = first; let ultimo = last">
+      {{ i + 1 }} - {{ nome }}
+      <span *ngIf="primeiro">(Primeiro da lista)</span>
+      <span *ngIf="ultimo">(Último da lista)</span>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,36 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+}
+
+.destaque {
+  border: 3px solid green;
+  background-color: #eefaf0;
+}
+
+.alerta {
+  border: 3px solid red;
+  background-color: #fff0f0;
+}
+
+.planejamento {
+  color: purple;
+}
+
+.desenvolvimento {
+  color: blue;
+}
+
+.testes {
+  color: #b8860b;
+}
+
+.concluido {
+  color: green;
+}

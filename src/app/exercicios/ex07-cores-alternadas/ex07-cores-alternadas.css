@@ -1,0 +1,26 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  border: 1px solid transparent;
+}
+
+.par {
+  background-color: #dbe7ff;
+}
+
+.impar {
+  background-color: #fff3cd;
+}
+
+.primeira {
+  font-weight: bold;
+  background-color: #b7f0c1;
+}
+
+.ultima {
+  border: 3px dashed purple;
+}

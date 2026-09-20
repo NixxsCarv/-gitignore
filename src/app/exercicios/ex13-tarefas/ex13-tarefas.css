@@ -1,0 +1,28 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-left-width: 8px;
+}
+
+.baixa {
+  border-left-color: blue;
+}
+
+.media {
+  border-left-color: orange;
+}
+
+.alta {
+  border-left-color: red;
+}
+
+.concluida {
+  background-color: #d4f5dc;
+  text-decoration: line-through;
+}

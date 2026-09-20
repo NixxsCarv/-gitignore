@@ -1,0 +1,64 @@
+<section>
+  <h3>Exercício 14 - Conversão para a sintaxe moderna</h3>
+
+  <h4>Exercício 2 convertido (&#64;if e &#64;else)</h4>
+
+  @if (usuarioLogado) {
+    <p>Usuário autenticado</p>
+  } @else {
+    <p>Acesso não autorizado</p>
+  }
+
+  <button (click)="alternarLogin()">{{ usuarioLogado ? 'Sair' : 'Entrar' }}</button>
+
+  <h4>Exercício 11 convertido (&#64;for, &#64;if e &#64;empty)</h4>
+
+  <button (click)="alternarFiltro()">
+    {{ somenteDisponiveis ? 'Exibir todos os produtos' : 'Exibir somente produtos com estoque' }}
+  </button>
+  <button (click)="limparProdutos()">Limpar produtos</button>
+
+  <ul>
+    @for (produto of produtos; track produto.id) {
+      @if (!somenteDisponiveis || produto.quantidade > 0) {
+        <li>{{ produto.nome }} - Quantidade: {{ produto.quantidade }}</li>
+      }
+    } @empty {
+      <li class="vazio">Nenhum produto cadastrado</li>
+    }
+  </ul>
+
+  <h4>Exercício 13 convertido (&#64;for, &#64;empty, &#64;if e &#64;else)</h4>
+
+  <button (click)="limparTarefas()">Limpar tarefas</button>
+
+  <ul>
+    @for (tarefa of tarefas; track tarefa.id) {
+      <li [class.concluida]="tarefa.concluida">
+        {{ tarefa.titulo }} -
+        @if (tarefa.concluida) {
+          <span>Concluída</span>
+        } @else {
+          <span>Pendente</span>
+        }
+        <button (click)="alternarSituacao(tarefa)">Alterar situação</button>
+      </li>
+    } @empty {
+      <li class="vazio">Nenhuma tarefa cadastrada</li>
+    }
+  </ul>
+
+  <h4>Duas diferenças percebidas entre as sintaxes</h4>
+  <ol>
+    <li>
+      Na sintaxe moderna o código fica mais parecido com um if e um for normais de programação, com o
+      else escrito logo depois do if. Não precisa mais do ng-template com # e nem de importar o
+      CommonModule.
+    </li>
+    <li>
+      No &#64;for o track é obrigatório e existe o &#64;empty para lista vazia, então não preciso criar um
+      *ngIf separado para mostrar a mensagem. Também não precisa mais do ng-container para juntar um
+      for com um if.
+    </li>
+  </ol>
+</section>

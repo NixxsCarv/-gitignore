@@ -1,0 +1,15 @@
+<section>
+  <h3>Exercício 6 - Tratamento de lista vazia</h3>
+
+  <button (click)="removerUltimo()">Remover último nome</button>
+  <button (click)="limparLista()">Limpar lista</button>
+  <button (click)="restaurarLista()">Restaurar lista inicial</button>
+
+  <p>Total de nomes: {{ nomes.length }}</p>
+
+  <p class="vazio" *ngIf="nomes.length === 0">Nenhum nome cadastrado</p>
+
+  <ul>
+    <li *ngFor="let nome of nomes; let i = index">{{ i + 1 }} - {{ nome }}</li>
+  </ul>
+</section>

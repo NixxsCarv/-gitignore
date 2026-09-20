@@ -1,0 +1,69 @@
+<section>
+  <h3>Desafio final - Painel de projetos</h3>
+
+  <p>Total de projetos: {{ projetos.length }}</p>
+  <p>Projetos concluídos: {{ contarConcluidos() }}</p>
+
+  <button (click)="alternarConcluidos()">
+    {{ mostrarConcluidos ? 'Ocultar concluídos' : 'Mostrar concluídos' }}
+  </button>
+  <button (click)="limparProjetos()">Limpar projetos</button>
+  <button (click)="restaurarProjetos()">Restaurar projetos</button>
+
+  <ul>
+    @for (projeto of projetos; track projeto.id; let i = $index) {
+      @if (mostrarConcluidos || projeto.status !== 'concluído') {
+        <li
+          [ngClass]="{
+            destaque: projeto.nota !== null && projeto.nota >= 7,
+            alerta: projeto.nota !== null && projeto.nota < 6
+          }"
+        >
+          <p>{{ i + 1 }} - <strong>{{ projeto.titulo }}</strong></p>
+          <p>Equipe: {{ projeto.equipe }}</p>
+
+          @if (projeto.nota === null) {
+            <p>Nota ainda não definida</p>
+          } @else {
+            <p>Nota: {{ projeto.nota }}</p>
+          }
+
+          <p
+            [ngClass]="{
+              planejamento: projeto.status === 'planejamento',
+              desenvolvimento: projeto.status === 'desenvolvimento',
+              testes: projeto.status === 'testes',
+              concluido: projeto.status === 'concluído'
+            }"
+          >
+            Status: {{ projeto.status }}
+          </p>
+
+          @if (projeto.entregue) {
+            <p>Projeto entregue</p>
+          }
+
+          @if (projeto.nota !== null && projeto.nota >= 7) {
+            <p>Projeto em destaque (nota 7 ou mais)</p>
+          }
+
+          @if (projeto.nota !== null && projeto.nota < 6) {
+            <p>Atenção: nota abaixo de 6</p>
+          }
+
+          <label>
+            Alterar status:
+            <select [(ngModel)]="projeto.status">
+              <option value="planejamento">planejamento</option>
+              <option value="desenvolvimento">desenvolvimento</option>
+              <option value="testes">testes</option>
+              <option value="concluído">concluído</option>
+            </select>
+          </label>
+        </li>
+      }
+    } @empty {
+      <li class="vazio">Nenhum projeto cadastrado</li>
+    }
+  </ul>
+</section>

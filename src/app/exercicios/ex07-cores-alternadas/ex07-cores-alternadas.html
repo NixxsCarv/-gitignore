@@ -1,0 +1,12 @@
+<section>
+  <h3>Exercício 7 - Cores alternadas</h3>
+
+  <ul>
+    <li
+      *ngFor="let disciplina of disciplinas; let par = even; let impar = odd; let primeira = first; let ultima = last"
+      [ngClass]="{ par: par, impar: impar, primeira: primeira, ultima: ultima }"
+    >
+      {{ disciplina }}
+    </li>
+  </ul>
+</section>

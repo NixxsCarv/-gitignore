@@ -1,0 +1,21 @@
+<section>
+  <h3>Exercício 9 - Classificação dos produtos</h3>
+
+  <ul>
+    <li *ngFor="let produto of produtos">
+      {{ produto.nome }} - Quantidade: {{ produto.quantidade }} -
+
+      <span
+        [ngClass]="{
+          vermelho: produto.quantidade === 0,
+          amarelo: produto.quantidade >= 1 && produto.quantidade <= 5,
+          verde: produto.quantidade > 5
+        }"
+      >
+        <span *ngIf="produto.quantidade === 0">Sem estoque</span>
+        <span *ngIf="produto.quantidade >= 1 && produto.quantidade <= 5">Estoque baixo</span>
+        <span *ngIf="produto.quantidade > 5">Estoque disponível</span>
+      </span>
+    </li>
+  </ul>
+</section>
